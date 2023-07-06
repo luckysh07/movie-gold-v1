@@ -8,6 +8,8 @@ import Header from './components/header/Header';
 import Trailer from './components/trailer/Trailer';
 import Reviews from './components/reviews/Reviews';
 import NotFound from './components/notFound/NotFound';
+import RegistrationForm from './components/register/RegistrationForm';
+import React from 'react';
 
 function App() {
 
@@ -40,8 +42,9 @@ function App() {
         const singleMovie = response.data;
 
         setMovie(singleMovie);
+        const reviews = singleMovie.reviewIds;
 
-        setReviews(singleMovie.reviews);
+        setReviews(singleMovie.reviewIds ?? []);
         
 
     } 
@@ -64,6 +67,7 @@ function App() {
             <Route path="/" element={<Home movies={movies} />} ></Route>
             <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
             <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
+            <Route path="/Register" element={<RegistrationForm />}></Route>
             <Route path="*" element = {<NotFound/>}></Route>
           </Route>
       </Routes>

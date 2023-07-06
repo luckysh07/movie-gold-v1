@@ -4,9 +4,18 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import RegistrationForm from "../register/RegistrationForm";
+import React from "react";
 
 const Header = () => {
+
+    const navigates = useNavigate();
+
+    function register()
+    {
+        navigates(`/Register`);
+    }
  
 return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -25,7 +34,7 @@ return (
                     <NavLink className ="nav-link" to="/watchList">Watch List</NavLink>      
                 </Nav>
                 <Button variant="outline-info" className="me-2">Login</Button>
-                <Button variant="outline-info">Register</Button>
+                <Button variant="outline-info" onClick={()=> register(<RegistrationForm />)}>Register</Button>
             </Navbar.Collapse>
         </Container>
     </Navbar>
