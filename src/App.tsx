@@ -9,6 +9,7 @@ import Trailer from './components/trailer/Trailer';
 import Reviews from './components/reviews/Reviews';
 import NotFound from './components/notFound/NotFound';
 import RegistrationForm from './components/register/RegistrationForm';
+import Login from './components/login/Login';
 import React from 'react';
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
             <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
             <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
             <Route path="/Register" element={<RegistrationForm />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
             <Route path="*" element = {<NotFound/>}></Route>
           </Route>
       </Routes>
